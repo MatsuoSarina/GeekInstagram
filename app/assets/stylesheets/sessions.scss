@@ -1,0 +1,28 @@
+.frame{
+    width: 80%; /*幅*/
+    margin: 30px auto; /*上の位置と中央寄せ*/
+    max-width: 600px; /*最大の幅*/
+}
+
+.icon{
+    background-image: url("/assets/Instagramicon.png");
+    background-size: cover;
+    width: 100px;
+    height: 100px;
+}
+
+.input{
+    width: 100%; /*幅*/
+    height: 100px; /*高さ*/
+    margin: 30px 0px; /*領域外のスペース*/
+    background-color: #eee; /*背景色*/
+    border-bottom: 2px solid #c2c2c2; /*text1の下線*/
+}
+
+.input2{
+    width: 100%; /*幅*/
+    height: 60px; /*高さ*/
+    margin: 15px 0px; /*領域外のスペース*/
+    background-color: #eee; /*背景色*/
+    border-bottom: 2px solid #c2c2c2; /*text1の下線*/ 
+}

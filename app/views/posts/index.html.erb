@@ -1,0 +1,66 @@
+<div class="Hakata">
+  <div class="head-container">
+    <h1>GeekInstagram</h1>
+    
+    <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "btn btn-danger" %>
+    
+  </div>
+    <%= link_to "新規投稿へ", posts_new_path %>
+  <br>
+  <br>
+  <h3>投稿一覧</h3><%= page_entries_info @posts %>
+
+  <div class='posts-container'>
+
+    <% if user_signed_in? %>
+    <%= link_to "マイページへ", user_path(current_user.id) %>
+    <% end %>
+
+  <div class="container">
+    <div class="row">
+      <% @posts.each do |t| %>
+        <div class="col-sm-4">
+          <div class="card" style="width: 18rem;">
+            <%= image_tag t.image_url, size: "250x200", class: "card-img-top" if t.image? %>
+            <div class="card-body">
+              <div class="post">
+                <%= t.user.email %><br>
+                <%= t.body %>
+                <%= t.created_at %>
+                <br>
+                <%= link_to "詳細へ", post_path(t.id) %>
+                <%= link_to "編集する", edit_post_path(t.id) %>
+                <%= link_to "削除する", post_path(t.id), method: :delete %>
+              </div>
+
+              <% if user_signed_in? %>
+                <% if current_user.already_liked?(t) %>
+                  <%= link_to post_like_path(id: t.id, post_id: t.id), method: :delete do %>
+                    <i class="fas fa-heart"></i><%= t.likes.count %>
+                    <p>いいねを取り消す</p><%= t.likes.count %>
+                  <% end %>
+                <% else %>
+                  <%= link_to post_likes_path(id: t.id, post_id: t.id), method: :post do %>
+                    <i class="fas fa-heart"></i><%= t.likes.count %>
+                    <p>いいね</p><%= t.likes.count %>
+                  <% end %>
+                <% end %>
+              <% else %>
+                <p>いいねの数 = </p><%= t.likes.count %>
+                <i class="fas fa-heart"></i><%= t.likes.count %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+  <h3>投稿を検索</h3>
+  <%= form_tag({controller:"posts",action:"index"}, method: :get) do %>
+    <%= text_field_tag :search %>
+    <%= submit_tag '検索する'  %>
+  <% end %>
+
+  <%= paginate @posts %>
+</div>
