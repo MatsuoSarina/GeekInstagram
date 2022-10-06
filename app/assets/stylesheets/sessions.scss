@@ -1,3 +1,5 @@
+
+
 .frame{
     width: 80%; /*幅*/
     margin: 30px auto; /*上の位置と中央寄せ*/
@@ -14,15 +16,13 @@
 .input{
     width: 100%; /*幅*/
     height: 100px; /*高さ*/
-    margin: 30px 0px; /*領域外のスペース*/
+    margin: 30px;
     background-color: #eee; /*背景色*/
-    border-bottom: 2px solid #c2c2c2; /*text1の下線*/
 }
 
 .input2{
     width: 100%; /*幅*/
-    height: 60px; /*高さ*/
-    margin: 15px 0px; /*領域外のスペース*/
+    height: 100px; /*高さ*/
+    margin: 30px;
     background-color: #eee; /*背景色*/
-    border-bottom: 2px solid #c2c2c2; /*text1の下線*/ 
 }

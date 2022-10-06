@@ -3,12 +3,10 @@
   <h1>GeekInstagram</h1>
   <h3>Post詳細</h3>
 
-
   <div class="post">
     <p><%= @post.body %></p>
     <p><%= @post.created_at %></p>
   </div>
-
 
   <% if user_signed_in? %>
     <% if current_user.already_liked?(@post) %>
@@ -31,7 +29,7 @@
     <p>コメント一覧</p>
     <% @comments.each do |c| %>
       <div>
-        <%= c.user.email unless c.user.blank? %>
+        <%= c.user.name unless c.user.blank? %>
         <br>
         <%= c.content %>
       </div>
